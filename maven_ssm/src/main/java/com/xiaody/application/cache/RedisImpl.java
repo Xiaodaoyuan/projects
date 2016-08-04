@@ -170,6 +170,11 @@ public class RedisImpl implements InitializingBean {
 		return ttl;
 	}
 
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
 	public Long incr(String key) {
 		Jedis client = getRedisClient();
 		if (null == client) {
