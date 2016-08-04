@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -125,10 +124,13 @@ public class RedisImpl implements InitializingBean {
 		if (null == client) {
 			return;
 		}
-		try{
-			key =getDbKey(key);
+		try {
+			key = getDbKey(key);
 			client.set(key.getBytes(), toBytes(value));
-		}catch(Exception e){
+			if (expire > 0) {
+				client.expireAt(key, expire);
+			}
+		} catch (Exception e) {
 			returnBrokenResource(client);
 		} finally {
 			returnResource(client);
