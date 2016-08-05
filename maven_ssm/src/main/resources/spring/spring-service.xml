@@ -8,4 +8,6 @@
 
 	<context:annotation-config />
 
+	<bean id="accountService" class="com.xiaody.application.service.impl.AccountServiceImpl" />
+
 </beans>
