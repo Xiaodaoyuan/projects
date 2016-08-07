@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.xiaody.application.dao.AccountMapper;
 import com.xiaody.application.model.Account;
 import com.xiaody.application.service.AccountService;
-import com.xiaody.application.util.CommonUtils;
+import static com.xiaody.application.util.CommonUtils.*;
 
 public class AccountServiceImpl implements AccountService {
 
@@ -14,13 +14,15 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Account create(Account account) {
+		account.setCreateTime(now());
+		account.setUpdateTime(now());
 		accountMapper.create(account);
 		return account;
 	}
 
 	@Override
 	public Account update(Integer id, Account account) {
-		account.setUpdateTime(CommonUtils.now());
+		account.setUpdateTime(now());
 		accountMapper.update(id, account);
 		return account;
 	}

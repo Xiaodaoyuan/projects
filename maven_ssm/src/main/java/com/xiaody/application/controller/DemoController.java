@@ -15,5 +15,11 @@ public class DemoController {
 		LOGGER.info("hello spring mvc!");
 		return "index";
 	}
+	
+	@RequestMapping("/head")
+	public String head(){
+		LOGGER.info("hello spring mvc!");
+		return "head";
+	}
 
 }

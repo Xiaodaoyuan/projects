@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.xiaody.application.BaseTest;
 import com.xiaody.application.model.Account;
-import com.xiaody.application.model.enums.UserType;
 
 public class TestAccountServiceImpl extends BaseTest{
 
@@ -22,15 +21,16 @@ public class TestAccountServiceImpl extends BaseTest{
 		account.setNickName("xiaoxiao");
 		account.setMobile("13718363267");
 		account.setPassword("123456");
-		account.setUserType(UserType.GENERAL_USER);
+		account.setGender("ÄÐ");
+		account.setUserType(1);
 		Account a= accountService.create(account);
 		System.out.println(a.getUserName());
 		System.out.println(a.getCreateTime());
 	}
-	
 	@Test
 	public void testGet(){
-		accountService.get(1);
+		Account account = accountService.get(1);
+		System.out.println(account.getEmail());
 	}
 	
 }

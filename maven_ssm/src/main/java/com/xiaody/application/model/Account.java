@@ -2,8 +2,6 @@ package com.xiaody.application.model;
 
 import java.util.Date;
 
-import com.xiaody.application.model.enums.UserType;
-
 public class Account {
 	private Integer id;
 	private String userName;
@@ -17,7 +15,7 @@ public class Account {
 	private Date lastLoginTime;
 	private Date createTime;
 	private Date updateTime;
-	private UserType userType;
+	private int userType;
 	private String deleted;
 
 	public Integer getId() {
@@ -116,11 +114,11 @@ public class Account {
 		this.updateTime = updateTime;
 	}
 
-	public UserType getUserType() {
+	public int getUserType() {
 		return userType;
 	}
 
-	public void setUserType(UserType userType) {
+	public void setUserType(int userType) {
 		this.userType = userType;
 	}
 
