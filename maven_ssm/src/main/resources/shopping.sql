@@ -51,3 +51,14 @@ create table commodity
    primary key (id)
 );
 
+
+create table 
+(
+   id                   int not null auto_increment,
+   cache_key            varchar(50),
+   stored_value         varchar,
+   createTime           datetime,
+   updateTime           datetime,
+   deleted              varchar(5),
+   primary key (id)
+);

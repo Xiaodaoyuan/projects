@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+	<changeSet id="xiaody-2016-8-12" author="xiaody">
+		<sql>
+            <![CDATA[
+                drop table if exists account;
+                create table account(
+                      id                   int not null auto_increment,
+                      user_name             varchar(20),
+                      password             varchar(20),
+                      nick_name             varchar(20),
+                      mobile               varchar(11),
+                      email                varchar(40),
+                      gender               varchar(2),
+                      photo                varchar(100),
+                      birth_date            date,
+                      lastLoginTime        datetime,
+                      createTime           datetime,
+                      updateTime           datetime,
+                      userType             int,
+                      deleted              varchar(5),
+                      primary key (id)
+                );
+            ]]>
+			<comment>create table account</comment>
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

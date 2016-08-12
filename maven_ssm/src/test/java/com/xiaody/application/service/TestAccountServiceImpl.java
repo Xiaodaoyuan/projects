@@ -2,6 +2,7 @@ package com.xiaody.application.service;
 
 import java.util.Date;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,8 @@ public class TestAccountServiceImpl extends BaseTest{
 	@Autowired
 	private AccountService accountService;
 	
+	@Ignore
+	@Test
 	public void testCreate(){
 		Account account =new Account();
 		account.setBirthDate(new Date());
@@ -27,10 +30,11 @@ public class TestAccountServiceImpl extends BaseTest{
 		System.out.println(a.getUserName());
 		System.out.println(a.getCreateTime());
 	}
+	
+	@Ignore
 	@Test
 	public void testGet(){
 		Account account = accountService.get(1);
-		System.out.println(account.getEmail());
 	}
 	
 }

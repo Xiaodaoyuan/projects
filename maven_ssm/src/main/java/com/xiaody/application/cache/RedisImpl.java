@@ -35,7 +35,7 @@ public class RedisImpl implements InitializingBean {
 
 	private int dataBase;
 
-	private final String DB_PREFIX = "db";
+	//private final String DB_PREFIX = "db";
 
 	private JedisPool pool;
 
@@ -84,10 +84,10 @@ public class RedisImpl implements InitializingBean {
 		return jedis;
 	}
 
-	private String getDbKey(String key) {
-		int no = dataBase;
-		return String.format("%s%d:%s", DB_PREFIX, no, key);
-	}
+	//private String getDbKey(String key) {
+	//	int no = dataBase;
+	//	return String.format("%s%d:%s", DB_PREFIX, no, key);
+	//}
 
 	private void returnResource(Jedis client) {
 		if (null == client) {
@@ -136,7 +136,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		boolean isExist = false;
 		try {
-			key = getDbKey(key);
 			isExist = client.exists(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis exist: " + e.getMessage());
@@ -159,7 +158,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		Long ttl = null;
 		try {
-			key = getDbKey(key);
 			ttl = client.ttl(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis ttl: " + e.getMessage());
@@ -182,7 +180,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		Long incr = null;
 		try {
-			key = getDbKey(key);
 			incr = client.incr(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis incr: " + e.getMessage());
@@ -206,7 +203,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		Long incrby = null;
 		try {
-			key = getDbKey(key);
 			incrby = client.incrBy(key.getBytes(), num);
 		} catch (Exception e) {
 			LOGGER.error("Error redis incr: " + e.getMessage());
@@ -238,7 +234,6 @@ public class RedisImpl implements InitializingBean {
 			return;
 		}
 		try {
-			key = getDbKey(key);
 			client.set(key.getBytes(), toBytes(value));
 			if (expire > 0) {
 				client.expireAt(key, expire);
@@ -263,7 +258,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		byte[] bytes = null;
 		try {
-			key = getDbKey(key);
 			bytes = client.get(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis str get: " + e.getMessage());
@@ -299,7 +293,6 @@ public class RedisImpl implements InitializingBean {
 			return;
 		}
 		try {
-			key = getDbKey(key);
 			client.set(key.getBytes(), serialize(value));
 			if (expire > 0) {
 				client.expireAt(key, expire);
@@ -324,7 +317,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		byte[] bytes = null;
 		try {
-			key = getDbKey(key);
 			bytes = client.get(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis get: " + e.getMessage());
@@ -360,7 +352,6 @@ public class RedisImpl implements InitializingBean {
 			return;
 		}
 		try {
-			key = getDbKey(key);
 			client.sadd(key.getBytes(), serialize(value));
 			if (expire > 0) {
 				client.expireAt(key, expire);
@@ -385,7 +376,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		Set<byte[]> bytes = null;
 		try {
-			key = getDbKey(key);
 			bytes = client.smembers(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis sget: " + e.getMessage());
@@ -415,7 +405,6 @@ public class RedisImpl implements InitializingBean {
 			return;
 		}
 		try {
-			key = getDbKey(key);
 			client.srem(key.getBytes(), serialize(member));
 		} catch (Exception e) {
 			LOGGER.error("Error redis srem: " + e.getMessage());
@@ -438,7 +427,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		boolean result = false;
 		try {
-			key = getDbKey(key);
 			result = client.sismember(key.getBytes(), serialize(member));
 		} catch (Exception e) {
 			LOGGER.error("Error redis sismembers: " + e.getMessage());
@@ -462,7 +450,6 @@ public class RedisImpl implements InitializingBean {
 		}
 		Long result = null;
 		try {
-			key = getDbKey(key);
 			result = client.scard(key.getBytes());
 		} catch (Exception e) {
 			LOGGER.error("Error redis scard: " + e.getMessage());
