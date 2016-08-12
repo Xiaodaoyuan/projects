@@ -2,7 +2,7 @@ package com.xiaody.application.model;
 
 import java.util.Date;
 
-public class Account {
+public class Account extends BaseModel {
 	private Integer id;
 	private String userName;
 	private String password;
@@ -13,10 +13,7 @@ public class Account {
 	private String photo;
 	private Date birthDate;
 	private Date lastLoginTime;
-	private Date createTime;
-	private Date updateTime;
 	private int userType;
-	private String deleted;
 
 	public Integer getId() {
 		return id;
@@ -80,7 +77,7 @@ public class Account {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}	
+	}
 
 	public Date getBirthDate() {
 		return birthDate;
@@ -98,22 +95,6 @@ public class Account {
 		this.lastLoginTime = lastLoginTime;
 	}
 
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-
 	public int getUserType() {
 		return userType;
 	}
@@ -121,14 +102,5 @@ public class Account {
 	public void setUserType(int userType) {
 		this.userType = userType;
 	}
-
-	public String getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
-	
 
 }
