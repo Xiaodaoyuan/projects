@@ -52,11 +52,11 @@ create table commodity
 );
 
 
-create table 
+create table cache
 (
    id                   int not null auto_increment,
    cache_key            varchar(50),
-   stored_value         varchar,
+   stored_value         varchar(1000),
    createTime           datetime,
    updateTime           datetime,
    deleted              varchar(5),
