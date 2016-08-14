@@ -3,21 +3,22 @@
 <mapper namespace="com.xiaody.application.dao.AccountMapper">
 	<insert id="create" parameterType="account">
 		insert into account (
-		   userName,password,nickName,mobile,email,gender,photo,
-		   birthDate,lastLoginTime,createTime,updateTime,userType)
+		userName,password,nickName,mobile,email,gender,photo,
+		birthDate,lastLoginTime,userType)
 		values (
-		  #{account.userName},#{account.password},#{account.nickName},
-		  #{account.mobile},#{account.email},#{account.gender},
-          #{account.photo},#{account.birthDate},#{account.lastLoginTime},
-		  #{account.createTime},#{account.updateTime},#{account.userType}
-		  )
+		#{account.userName},#{account.password},#{account.nickName},
+		#{account.mobile},#{account.email},#{account.gender},
+		#{account.photo},#{account.birthDate},#{account.lastLoginTime},
+		#{account.userType}
+		)
 	</insert>
-	
+
 	<delete id="delete">
-       delete from account where id = #{id}
-    </delete>
-	
+		delete from account where id = #{id}
+	</delete>
+
 	<select id="get" resultType="Account">
-	   select *from account where id = #{id}
+		select *from account where id =
+		#{id}
 	</select>
 </mapper>

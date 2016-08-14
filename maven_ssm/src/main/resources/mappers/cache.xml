@@ -1,20 +1,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.xiaody.application.dao.AccountMapper">
+<mapper namespace="com.xiaody.application.dao.CacheMapper">
 	<insert id="create" parameterType="cache">
-		insert into cache (
-		   cache_key,stored_value,createTime,updateTime,deleted)
-		values (
-		 #{cache.cache_key},#{cache.stored_value},
-		  #{cache.createTime},#{cache.updateTime},#{cache.deleted}
-		  )
+		insert into cache
+		(cache_key,stored_value)
+		values
+		(#{cache.cache_key},#{cache.stored_value})
 	</insert>
-	
+
 	<delete id="delete">
-       delete from cache where id = #{id}
-    </delete>
-	
-	<select id="get" resultType="Account">
-	   select *from cache where id = #{id}
+		delete from cache where id = #{id}
+	</delete>
+
+	<select id="get" resultType="Cache">
+		select *from cache where id = #{id}
+	</select>
+
+	<select id="getByKey" resultType="Cache">
+		select *from cache where
+		cacheKey = #{key}
 	</select>
 </mapper>

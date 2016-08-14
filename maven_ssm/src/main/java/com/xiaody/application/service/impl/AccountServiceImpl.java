@@ -14,8 +14,6 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Account create(Account account) {
-		account.setCreateTime(now());
-		account.setUpdateTime(now());
 		accountMapper.create(account);
 		return account;
 	}

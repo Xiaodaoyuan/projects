@@ -5,5 +5,6 @@
 	<!-- 实体类,简称 -设置别名 -->
 	<typeAliases>
 		<typeAlias alias="Account" type="com.xiaody.application.model.Account" />
+		<typeAlias alias="Cache" type="com.xiaody.application.model.cache.Cache" />
 	</typeAliases>
 </configuration>

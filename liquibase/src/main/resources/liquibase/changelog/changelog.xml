@@ -18,10 +18,10 @@
                       photo                varchar(100),
                       birthDate            date,
                       lastLoginTime        datetime,
-                      createTime           datetime,
-                      updateTime           datetime,
+                      createTime           datetime not null default current_timestamp,
+                      updateTime           datetime not null default current_timestamp,
                       userType             int,
-                      deleted              varchar(5),
+                      deleted              varchar(5)not null default 'false',
                       primary key (id)
                 );
             ]]>
@@ -37,9 +37,9 @@
                     id                   int not null auto_increment,
                     cacheKey            varchar(50),
                     storedValue         varchar(1000),
-                    createTime           datetime,
-                    updateTime           datetime,
-                    deleted              varchar(5),
+                    createTime           datetime not null default current_timestamp,
+                    updateTime           datetime not null default current_timestamp,
+                    deleted              varchar(5) not null default 'false',
                     primary key (id)
                 );
             ]]>

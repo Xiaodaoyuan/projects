@@ -27,6 +27,7 @@ public class TestAccountServiceImpl extends BaseTest{
 		account.setGender("ÄÐ");
 		account.setUserType(1);
 		Account a= accountService.create(account);
+		System.out.println(a.getId());
 		System.out.println(a.getUserName());
 		System.out.println(a.getCreateTime());
 	}
