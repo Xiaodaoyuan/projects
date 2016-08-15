@@ -6,6 +6,7 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
 
+//EhCacheFacade
 public enum EhCacheFacade {
 	CACHE;
 
