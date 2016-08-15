@@ -2,11 +2,14 @@ package com.xiaody.application.cache;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xiaody.application.BaseTest;
-
-public class TestRedisImpl extends BaseTest{
+@ContextConfiguration(locations = { "classpath:application.xml" }) 
+@RunWith(SpringJUnit4ClassRunner.class)
+public class TestRedisImpl{
 	
 	@Autowired
 	private RedisImpl redisCache1;

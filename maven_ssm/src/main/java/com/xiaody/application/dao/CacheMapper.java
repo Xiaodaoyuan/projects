@@ -7,7 +7,7 @@ import com.xiaody.application.model.cache.Cache;
 public interface CacheMapper {
 	void create(@Param("cache") Cache cache);
 
-	void update(@Param("cache") Cache cache);
+	void update(@Param("id") Integer id, @Param("cache") Cache cache);
 
 	void delete(@Param("id") Integer id);
 

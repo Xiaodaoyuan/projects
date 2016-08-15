@@ -3,10 +3,18 @@
 <mapper namespace="com.xiaody.application.dao.CacheMapper">
 	<insert id="create" parameterType="cache">
 		insert into cache
-		(cache_key,stored_value)
+		(cacheKey,storedValue)
 		values
-		(#{cache.cache_key},#{cache.stored_value})
+		(#{cache.cacheKey},#{cache.storedValue})
 	</insert>
+
+	<update id="update">
+		update cache
+		set cacheKey = #{cache.cacheKey},
+		storedValue=#{cache.storedValue},
+		updateTime=#{cache.updateTime}
+		where id = #{id}
+	</update>
 
 	<delete id="delete">
 		delete from cache where id = #{id}

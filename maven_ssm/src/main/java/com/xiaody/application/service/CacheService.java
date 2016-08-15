@@ -5,7 +5,7 @@ import com.xiaody.application.model.cache.Cache;
 public interface CacheService {
 	Cache create(Cache cache);
 
-	Cache update(Cache cache);
+	Cache update(Integer id, Cache cache);
 
 	void delete(Integer id);
 

@@ -4,12 +4,16 @@ import java.util.Date;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xiaody.application.BaseTest;
 import com.xiaody.application.model.Account;
 
-public class TestAccountServiceImpl extends BaseTest{
+@ContextConfiguration(locations = { "classpath:application.xml" }) 
+@RunWith(SpringJUnit4ClassRunner.class)
+public class TestAccountServiceImpl{
 
 	@Autowired
 	private AccountService accountService;
@@ -35,7 +39,7 @@ public class TestAccountServiceImpl extends BaseTest{
 	@Ignore
 	@Test
 	public void testGet(){
-		Account account = accountService.get(1);
+		accountService.get(1);
 	}
 	
 }
