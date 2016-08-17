@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>贵美商城</title>
-<link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.css" />
 <script type="text/JavaScript">
 	var strHome = 'http://www.gmgw.com';
 	function addFav() {
@@ -102,16 +102,16 @@
 				<li><a href="help.jsp" target="_parent">免费开店</a></li>
 				<li><a href="help.jsp" target="_parent">全球咨询</a></li>
 			</ul>
-			<form method="post" action="select" target="_parent"
+			<!--  <form method="post" action="select" target="_parent"
 				onsubmit="return check()">
 				<input
 					style="width: 160px;height: 22px; position: absolute;left: 740px; top: 103px"
 					id="keywords" name="keywords" /> <input type="image"
-					src="images/h_bg_cai.jpg"
+					src="../images/h_bg_cai.jpg"
 					style="width:70px;height:26px; 
   				  position: absolute;left: 904px; border: 0px;"
 					id="img1" />
-			</form>
+			</form>-->
 
 		</div>
 		<!--nav	end-->

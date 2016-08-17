@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>贵美商城</title>
-<link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.css" />
 </head>
 <body>
 	<div id="footer">
@@ -29,9 +29,9 @@
 		<hr />
 		COPYRIGHT &copy; 2003-2010 <a href="#">北京市贵美商城有限公司</a> ALL RIGHT
 		RESERVED<br /> 热线：400-66-13060 Email:service@prd.com<br /> ICP：<a
-			href="#">沪ICP备05021104号</a><br /> <img src="images/img1.gif"
-			alt="alt" /> <img src="images/img2.gif" alt="alt" /> <img
-			src="images/img3.gif" alt="alt" /> <img src="images/img4.gif"
+			href="#">沪ICP备05021104号</a><br /> <img src="../images/img1.gif"
+			alt="alt" /> <img src="../images/img2.gif" alt="alt" /> <img
+			src="../images/img3.gif" alt="alt" /> <img src="../images/img4.gif"
 			alt="alt" />
 	</div>
 </body>

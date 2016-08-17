@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>贵美商城</title>
-<link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
-<script type="text/JavaScript" src="js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+<script type="text/javaScript" src="../js/index.js"></script>
 <script type="text/javascript">
 	function f1() {
 		var obj = document.getElementById("s1").value;
@@ -38,8 +38,9 @@
 </head>
 <body>
 	<div id="container">
-		<iframe id="header" runat="server" src="head" width="980"
-			height="136" frameborder="0" scrolling="no"></iframe>
+		<!--  <iframe id="header" runat="server" src="head" width="980"
+			height="136" frameborder="0" scrolling="no"></iframe>-->
+		<jsp:include page="header.jsp" />
 		<div id="main">
 			<div class="cat">
 				<ul>
@@ -256,7 +257,7 @@
 								<option>5000以上</option>
 							</select>
 						</p>
-						<img alt="" class="hand" src="images/scan_discount.jpg"
+						<img alt="" class="hand" src="../images/scan_discount.jpg"
 							onclick="f1()">
 					</div>
 					<div id="tabbody">
@@ -283,15 +284,16 @@
 							</select>
 						</p>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt=""
-							class="hand" src="images/scan_discount.jpg" onclick="f2()">
+							class="hand" src="../images/scan_discount.jpg" onclick="f2()">
 					</div>
 				</div>
 			</div>
 			<!--sidebar end-->
 		</div>
+		<jsp:include page="footer.jsp" />
 		<!--main end-->
-		<iframe id="footer" runat="server" src="footer.jsp" width="980"
-			height="150" frameborder="0" scrolling="no"></iframe>
+		<!-- <iframe id="footer" runat="server" src="foot" width="980"
+			height="150" frameborder="0" scrolling="no"></iframe> -->
 
 	</div>
 	<!--container	end-->

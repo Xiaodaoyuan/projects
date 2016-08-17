@@ -18,8 +18,12 @@ public class DemoController {
 	
 	@RequestMapping("/head")
 	public String head(){
-		LOGGER.info("hello spring mvc!");
-		return "head";
+		return "header";
+	}
+	
+	@RequestMapping("/foot")
+	public String foot(){
+		return "footer";
 	}
 
 }
