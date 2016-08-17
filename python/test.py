@@ -7,11 +7,11 @@ HOST_ADDR = 'http://localhost:8080'
 
 
 def main():
-    resp = requests.get(HOST_ADDR + '/maven_ssm/cache/key/name')
+    resp = requests.get(HOST_ADDR + '/maven_ssm/cache/key/hot_words_c')
     print(resp.status_code)
     print(resp.json())
     cache = resp.json().get('value')
-    print(cache.get('name'))
+    print(cache.get('jobs'))
     print(type(cache))
 
 
