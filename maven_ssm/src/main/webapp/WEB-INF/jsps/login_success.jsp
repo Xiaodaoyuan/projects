@@ -9,18 +9,18 @@
  <link rel="stylesheet"	type="text/css"	href="css/layout.css"	/>
  <script type="text/javascript">
   function f1(){
-    setTimeout(function(){location="index";}, 5000);
+    setTimeout(function(){location="/maven_ssm/app/index";}, 5000);
   }
  </script>
 </head>
 <body onload="f1()">
 	<div id="container">
-		<iframe src="header.jsp" width="980" height="136" frameborder="0" scrolling="no"></iframe>	
-		<p class="a_c lh24"><img src="./images/logo.jpg" alt="alt" /><br />
+		<jsp:include page="header.jsp" />	
+		<p class="a_c lh24"><img src="../images/logo.jpg" alt="alt" /><br />
 			祝贺 !!! <br />
 			您已经成功登录！！！<br />
-  	  欢迎来到 <a href="index" ><font size="3" color="red">拍卖天堂</font></a></p>
-		<iframe src="footer.jsp" width="980" height="150" frameborder="0" scrolling="no"></iframe>
+  	  欢迎来到 <a href="/maven_ssm/app/index" ><font size="3" color="red">拍卖天堂</font></a></p>
+		<jsp:include page="footer.jsp" />
 	</div><!--container	end-->
 </body>
 </html>		

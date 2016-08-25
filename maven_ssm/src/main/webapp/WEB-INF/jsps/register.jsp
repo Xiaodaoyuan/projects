@@ -5,30 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>贵美商城</title>
-<link rel="stylesheet" type="text/css" href="css/global.css" />
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
-<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
-<script type="text/javascript" src="js/check.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+<script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="../js/check.js"></script>
 </head>
 <body>
 	<div id="container">
-		<iframe id="header" src="header.jsp" width="980" height="136"
-			frameborder="0" scrolling="no"></iframe>
-		<form id="form1" method="post" action="register"
-			onsubmit="return checkTrue()" enctype="multipart/form-data">
+		<jsp:include page="header.jsp" />
+		<form id="form1" method="post" action="/maven_ssm/users/register"
+			onsubmit="return 1checkTrue()" >
 			<input type="hidden" id="h1" /><input type="hidden" id="h2" />
 			<table class="reg" cellspacing="0px" cellpadding="0px">
 				<tbody>
 					<tr>
 						<td class="a_r w15p"><label for="fname">名字：</label>
 						</td>
-						<td class="w500"><input name="fname" id="fname" type="text"
-							onfocus="updateRed('fname')" onblur="checkFname()" /><span
+						<td class="w500"><input name="nickName" id="fname" type="text"
+							onfocus="updateRed('fname')" onblur="1checkFname()" /><span
 							id="fname_msg"></span>
 						</td>
 						<td class="protocol" rowspan="12">
 							<h4>
-								<img src="images/read.gif" alt="alt" />阅读贵美网服务协议
+								<img src="../images/read.gif" alt="alt" />阅读贵美网服务协议
 							</h4> <textarea name="textarea" cols="35" rows="15"
 								disabled="disabled">欢迎阅读服务条款协议，本协议阐述之条款和条件适用于您使用Gmgw.com网站的各种工具和服务。
 
@@ -44,23 +43,23 @@
 						<td class="a_r"><label for="lname">姓氏：</label>
 						</td>
 						<td><input name="lname" id="lname" type="text"
-							onfocus="updateRed('lname')" onblur="checkLname()" /><span
+							onfocus="updateRed('lname')" onblur="1checkLname()" /><span
 							id="lname_msg"></span>
 						</td>
 					</tr>
 					<tr>
 						<td class="a_r"><label for="sname">登录名：</label>
 						</td>
-						<td><input name="sname" id="sname" type="text"
-							onfocus="updateRed('sname')" onblur="checkSname()" /><span
+						<td><input name="userName" id="sname" type="text"
+							onfocus="updateRed('sname')" onblur="1checkSname()" /><span
 							id="sname_msg">（可包含字母数字和下划线的4至16位）</span>
 						</td>
 					</tr>
 					<tr>
 						<td class="a_r"><label for="pass">密码：</label>
 						</td>
-						<td><input name="pass" id="pass" type="password"
-							onfocus="updateRed('pass')" onblur="checkPass()" /><span
+						<td><input name="password" id="pass" type="password"
+							onfocus="updateRed('pass')" onblur="1checkPass()" /><span
 							id="pass_msg">（至少包含 6 个字符）</span>
 						</td>
 					</tr>
@@ -68,7 +67,7 @@
 						<td class="a_r"><label for="rpass">再次输入密码：</label>
 						</td>
 						<td><input name="rpass" id="rpass" type="password"
-							onfocus="updateRed('rpass')" onblur="checkRpass()" /><span
+							onfocus="updateRed('rpass')" onblur="1checkRpass()" /><span
 							id="rpass_msg"></span>
 						</td>
 					</tr>
@@ -76,7 +75,7 @@
 						<td class="a_r"><label for="email">电子邮箱：</label>
 						</td>
 						<td><input name="email" id="email" type="text"
-							onfocus="updateRed('email')" onblur="checkEmail()" /><span
+							onfocus="updateRed('email')" onblur="1checkEmail()" /><span
 							id="email_msg">格式如：xxx@xx.xx（.xx）</span>
 						</td>
 					</tr>
@@ -84,9 +83,9 @@
 						<td class="a_r"><label for="gender">性别：</label>
 						</td>
 						<td><input name="gender" id="gender" class="b0" type="radio"
-							value="男" checked="checked" /> <img src="images/Male.gif"
+							value="男" checked="checked" /> <img src="../images/Male.gif"
 							alt="alt" />男&nbsp; <input name="gender" class="b0" type="radio"
-							value="女" /> <img src="images/Female.gif" alt="alt" />女</td>
+							value="女" /> <img src="../images/Female.gif" alt="alt" />女</td>
 					</tr>
 					<tr>
 						<td class="a_r">头像：</td>
@@ -129,7 +128,7 @@
 					<tr>
 						<td class="a_r"><label for="code">验证码：</label>
 						</td>
-						<td><input name="code" id="code" type="text" onfocus="updateRed('code')" onblur="checkCode()"/> <a href="javascript:;"
+						<td><input name="code" id="code" type="text" onfocus="updateRed('code')" onblur="1checkCode()"/> <a href="javascript:;"
 							onclick="document.getElementById('num').src = 'image?'+(new Date()).getTime()"><img
 								id="num" src="image" />
 						</a> <a href="javascript:;"
@@ -138,15 +137,14 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="pl150"><input type="image"
-							name="submit" class="b0" src="images/submit.gif" /><img
-							src="images/reset.gif" class="hand" alt="重填" onclick="Reset()" />
+							name="submit" class="b0" src="../images/submit.gif" /><img
+							src="../images/reset.gif" class="hand" alt="重填" onclick="Reset()" />
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</form>
-		<iframe id="footer" src="footer.jsp" width="980" height="136"
-			frameborder="0" scrolling="no"></iframe>
+		<jsp:include page="footer.jsp" />
 	</div>
 	<!--container	end-->
 </html>

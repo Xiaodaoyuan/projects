@@ -74,9 +74,9 @@
 						href="logout" target="_parent"  >注销</a></li>
 				</c:if>
 				<c:if test="${!flag}">
-					<li class="pic btn txt"><a href="login.jsp" target="_parent">登录</a>
+					<li class="pic btn txt"><a href="login" target="_parent">登录</a>
 					</li>
-					<li class="pic btn txt"><a href="register.jsp"
+					<li class="pic btn txt"><a href="register"
 						target="_parent">注册</a></li>
 				</c:if>
 			</ul>
