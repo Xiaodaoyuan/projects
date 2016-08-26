@@ -10,5 +10,7 @@ public interface AccountService {
 	void delete(Integer id);
 
 	Account get(Integer id);
+	
+	Account login(Account account);
 
 }

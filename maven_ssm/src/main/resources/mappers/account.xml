@@ -13,6 +13,25 @@
 		#{account.userType}
 		)
 	</insert>
+	
+	<update id="update" parameterType="account">
+	   update account
+        set
+          userName = #{account.userName},
+          password = #{account.password},
+          nickName = #{account.nickName},
+          mobile = #{account.mobile},
+          email = #{account.email},
+          gender = #{account.gender},
+          photo = #{account.photo},
+          birthDate = #{account.birthDate},
+          lastLoginTime = #{account.lastLoginTime},
+          updateTime = #{account.updateTime},
+          userType = #{account.userType},
+          deleted = #{account.deleted}
+        where
+          id = #{id}
+	</update>
 
 	<delete id="delete">
 		delete from account where id = #{id}
@@ -21,5 +40,9 @@
 	<select id="get" resultType="Account">
 		select *from account where id =
 		#{id}
+	</select>
+	
+	<select id="checkUsernameLogin" resultType="Account">
+		select *from account where userName =#{userName} and password=#{password}
 	</select>
 </mapper>

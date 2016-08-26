@@ -29,7 +29,7 @@
 		</sql>
 	</changeSet>
 	
-		<changeSet id="xiaody2016081202" author="xiaody">
+	<changeSet id="xiaody2016081202" author="xiaody">
 		<sql>
             <![CDATA[
                 drop table if exists cache;
@@ -44,6 +44,15 @@
                 );
             ]]>
 			<comment>create table cache</comment>
+		</sql>
+	</changeSet>
+	
+	<changeSet id="xiaody2016082601" author="xiaody">
+		<sql>
+            <![CDATA[
+              alter table account  modify column password varchar(32);
+            ]]>
+			<comment>alter table account</comment>
 		</sql>
 	</changeSet>
 

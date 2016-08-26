@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.xiaody.application.model.Account;
 import com.xiaody.application.model.enums.UserType;
+import com.xiaody.application.util.Utils;
 
 @ContextConfiguration(locations = { "classpath:application.xml" }) 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -41,6 +42,18 @@ public class TestAccountServiceImpl{
 	public void testGet(){
 		Account a =accountService.get(2);
 		System.out.println(a.getUserType());
+	}
+	
+	@Ignore
+	@Test
+	public void testUpdate(){
+		Account a =accountService.get(2);
+		a.setUserName("xiaoxiao");
+		a.setMobile("15279227857");
+		a.setNickName("xiao");
+		a.setGender("Ů");
+		a.setPassword(Utils.hash(a.getPassword()));
+		accountService.update(a.getId(), a);
 	}
 	
 }

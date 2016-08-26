@@ -8,9 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -140,5 +142,28 @@ public class Utils {
 
         return ips;
     }
+	
+	 public static String hash(String input) {
+	        if (input == null)
+	            return null;
+
+	        try {
+	            MessageDigest m = MessageDigest.getInstance("MD5");
+	            m.reset();
+	            m.update(input.getBytes());
+	            byte[] digest = m.digest();
+	            BigInteger bigInt = new BigInteger(1, digest);
+
+	            String result = bigInt.toString(16);
+	            if (result.length() > 32)
+	                result = result.substring(0, 32);
+
+	            // forget to padding left 0 to len-32, which does not meet MD5 standard
+
+	            return result;
+	        } catch (Exception e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
 
 }

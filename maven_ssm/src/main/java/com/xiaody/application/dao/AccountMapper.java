@@ -12,4 +12,6 @@ public interface AccountMapper {
 	void delete(@Param("id") Integer id);
 
 	Account get(@Param("id") Integer id);
+	
+	Account checkUsernameLogin(@Param("userName")String userName,@Param("password")String password);
 }
