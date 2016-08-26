@@ -8,9 +8,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.List;
 
-public class CommonUtils {
+public class Utils {
 	/**
 	 * 
 	 * @param str
@@ -73,6 +79,7 @@ public class CommonUtils {
 	 * @param bytes
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T deserialize(byte[] bytes) {
 		ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
 		ObjectInput in = null;
@@ -107,5 +114,31 @@ public class CommonUtils {
 	public static Long nowTime() {
 		return now().getTime();
 	}
+	
+	public static List<String> getIpAddress() {
+        List<String> ips = new ArrayList<String>();
+        try {
+            Enumeration<?> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
+            InetAddress ip;
+            while (allNetInterfaces.hasMoreElements())
+            {
+                NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
+                Enumeration<?> addresses = netInterface.getInetAddresses();
+                while (addresses.hasMoreElements())
+                {
+                    ip = (InetAddress) addresses.nextElement();
+                    if (ip != null && ip instanceof Inet4Address)
+                    {
+                        ips.add(ip.getHostAddress());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return ips;
+    }
 
 }

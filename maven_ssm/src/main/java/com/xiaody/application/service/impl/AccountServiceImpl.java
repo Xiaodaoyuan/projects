@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.xiaody.application.dao.AccountMapper;
 import com.xiaody.application.model.Account;
 import com.xiaody.application.service.AccountService;
-import static com.xiaody.application.util.CommonUtils.*;
+import static com.xiaody.application.util.Utils.*;
 
 public class AccountServiceImpl implements AccountService {
 

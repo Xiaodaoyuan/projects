@@ -1,7 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xiaody.application.dao.AccountMapper">
-	<insert id="create" parameterType="account">
+	<insert id="create" parameterType="account"  useGeneratedKeys="true"
+            keyProperty="account.id" keyColumn="id">
 		insert into account (
 		userName,password,nickName,mobile,email,gender,photo,
 		birthDate,lastLoginTime,userType)

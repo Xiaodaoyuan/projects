@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.xiaody.application.model.Account;
+import com.xiaody.application.model.enums.UserType;
 
 @ContextConfiguration(locations = { "classpath:application.xml" }) 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,17 +30,17 @@ public class TestAccountServiceImpl{
 		account.setMobile("13718363267");
 		account.setPassword("123456");
 		account.setGender("ÄÐ");
-		account.setUserType(1);
+		account.setUserType(UserType.SYSTEM);
 		Account a= accountService.create(account);
 		System.out.println(a.getId());
 		System.out.println(a.getUserName());
 		System.out.println(a.getCreateTime());
 	}
 	
-	@Ignore
 	@Test
 	public void testGet(){
-		accountService.get(1);
+		Account a =accountService.get(2);
+		System.out.println(a.getUserType());
 	}
 	
 }
