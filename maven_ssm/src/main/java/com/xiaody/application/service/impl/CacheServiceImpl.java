@@ -11,7 +11,7 @@ import com.xiaody.application.cache.EhCacheFacade;
 import com.xiaody.application.dao.CacheMapper;
 import com.xiaody.application.model.cache.Cache;
 import com.xiaody.application.service.CacheService;
-import com.xiaody.application.util.CommonUtils;
+import com.xiaody.application.util.Utils;
 
 public class CacheServiceImpl implements CacheService {
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
@@ -41,7 +41,7 @@ public class CacheServiceImpl implements CacheService {
 
 	@Override
 	public Cache update(Integer id, Cache cache) {
-		cache.setUpdateTime(CommonUtils.now());
+		cache.setUpdateTime(Utils.now());
 		cacheMapper.update(id, cache);
 		return cache;
 	}

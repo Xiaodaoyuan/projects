@@ -1,9 +1,9 @@
 package com.xiaody.application.cache;
 
-import static com.xiaody.application.util.CommonUtils.deserialize;
-import static com.xiaody.application.util.CommonUtils.serialize;
-import static com.xiaody.application.util.CommonUtils.toBytes;
-import static com.xiaody.application.util.CommonUtils.toStr;
+import static com.xiaody.application.util.Utils.deserialize;
+import static com.xiaody.application.util.Utils.serialize;
+import static com.xiaody.application.util.Utils.toBytes;
+import static com.xiaody.application.util.Utils.toStr;
 
 import java.util.HashSet;
 import java.util.Set;
