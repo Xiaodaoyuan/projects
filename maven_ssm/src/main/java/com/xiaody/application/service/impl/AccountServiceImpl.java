@@ -5,10 +5,13 @@ import org.springframework.util.Assert;
 
 import com.xiaody.application.dao.AccountMapper;
 import com.xiaody.application.model.Account;
+import com.xiaody.application.model.option.AccountSearchOptions;
 import com.xiaody.application.service.AccountService;
 import com.xiaody.application.util.Utils;
 
 import static com.xiaody.application.util.Utils.*;
+
+import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
 
@@ -56,6 +59,11 @@ public class AccountServiceImpl implements AccountService {
 			update(userId, account);
 		}
 		return account;
+	}
+
+	@Override
+	public List<Account> searchByPage(AccountSearchOptions option) {
+		return accountMapper.searchByPage(option);
 	}
 
 }

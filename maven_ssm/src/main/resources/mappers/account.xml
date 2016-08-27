@@ -1,8 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xiaody.application.dao.AccountMapper">
-	<insert id="create" parameterType="account"  useGeneratedKeys="true"
-            keyProperty="account.id" keyColumn="id">
+	<insert id="create" parameterType="account" useGeneratedKeys="true"
+		keyProperty="account.id" keyColumn="id">
 		insert into account (
 		userName,password,nickName,mobile,email,gender,photo,
 		birthDate,lastLoginTime,userType)
@@ -13,24 +13,24 @@
 		#{account.userType}
 		)
 	</insert>
-	
+
 	<update id="update" parameterType="account">
-	   update account
-        set
-          userName = #{account.userName},
-          password = #{account.password},
-          nickName = #{account.nickName},
-          mobile = #{account.mobile},
-          email = #{account.email},
-          gender = #{account.gender},
-          photo = #{account.photo},
-          birthDate = #{account.birthDate},
-          lastLoginTime = #{account.lastLoginTime},
-          updateTime = #{account.updateTime},
-          userType = #{account.userType},
-          deleted = #{account.deleted}
-        where
-          id = #{id}
+		update account
+		set
+		userName = #{account.userName},
+		password = #{account.password},
+		nickName = #{account.nickName},
+		mobile = #{account.mobile},
+		email = #{account.email},
+		gender = #{account.gender},
+		photo = #{account.photo},
+		birthDate = #{account.birthDate},
+		lastLoginTime = #{account.lastLoginTime},
+		updateTime = #{account.updateTime},
+		userType = #{account.userType},
+		deleted = #{account.deleted}
+		where
+		id = #{id}
 	</update>
 
 	<delete id="delete">
@@ -41,8 +41,13 @@
 		select *from account where id =
 		#{id}
 	</select>
-	
+
 	<select id="checkUsernameLogin" resultType="Account">
-		select *from account where userName =#{userName} and password=#{password}
+		select *from account
+		where userName =#{userName} and password=#{password}
+	</select>
+
+	<select id="searchByPage" resultType="Account">
+		select *from account
 	</select>
 </mapper>

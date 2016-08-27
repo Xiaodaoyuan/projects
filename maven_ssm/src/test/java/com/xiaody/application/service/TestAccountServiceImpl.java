@@ -1,6 +1,7 @@
 package com.xiaody.application.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.xiaody.application.model.Account;
 import com.xiaody.application.model.enums.UserType;
+import com.xiaody.application.model.option.AccountSearchOptions;
+import com.xiaody.application.model.vo.Page;
 import com.xiaody.application.util.Utils;
 
 @ContextConfiguration(locations = { "classpath:application.xml" }) 
@@ -38,10 +41,13 @@ public class TestAccountServiceImpl{
 		System.out.println(a.getCreateTime());
 	}
 	
+	
 	@Test
 	public void testGet(){
+		long start =System.currentTimeMillis();
 		Account a =accountService.get(2);
 		System.out.println(a.getUserType());
+		System.out.println(System.currentTimeMillis()-start);
 	}
 	
 	@Ignore
@@ -55,5 +61,14 @@ public class TestAccountServiceImpl{
 		a.setPassword(Utils.hash(a.getPassword()));
 		accountService.update(a.getId(), a);
 	}
-	
+	@Ignore
+	@Test
+	public void testSearchByPage(){
+		AccountSearchOptions option =new AccountSearchOptions();
+		option.setPageNo(1);
+		option.setPageSize(1);
+		List<Account> list = accountService.searchByPage(option);
+		System.out.println(list.size());
+		System.out.println(option.getTotalNum());
+	}
 }

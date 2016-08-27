@@ -1,6 +1,9 @@
 package com.xiaody.application.service;
 
+import java.util.List;
+
 import com.xiaody.application.model.Account;
+import com.xiaody.application.model.option.AccountSearchOptions;
 
 public interface AccountService {
 	Account create(Account account);
@@ -12,5 +15,7 @@ public interface AccountService {
 	Account get(Integer id);
 	
 	Account login(Account account);
+	
+	List<Account> searchByPage(AccountSearchOptions option);
 
 }
