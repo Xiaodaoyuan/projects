@@ -10,5 +10,6 @@
 
 	<bean id="accountService" class="com.xiaody.application.service.impl.AccountServiceImpl" />
 	<bean id="cacheService" class="com.xiaody.application.service.impl.CacheServiceImpl" />
+	<bean id="rabbitMqService" class="com.xiaody.application.service.impl.RabbitMqServiceImpl" />
 
 </beans>
