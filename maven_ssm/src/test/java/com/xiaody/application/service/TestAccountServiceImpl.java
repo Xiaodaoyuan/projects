@@ -12,11 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.xiaody.application.model.Account;
 import com.xiaody.application.model.enums.UserType;
-import com.xiaody.application.model.option.AccountSearchOptions;
-import com.xiaody.application.model.vo.Page;
+import com.xiaody.application.model.options.AccountSearchOptions;
 import com.xiaody.application.util.Utils;
 
-@ContextConfiguration(locations = { "classpath:application.xml" }) 
+@ContextConfiguration(locations = { "classpath:application.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TestAccountServiceImpl{
 

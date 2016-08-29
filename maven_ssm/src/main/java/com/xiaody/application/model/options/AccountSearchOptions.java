@@ -1,4 +1,4 @@
-package com.xiaody.application.model.option;
+package com.xiaody.application.model.options;
 
 import com.xiaody.application.model.vo.Page;
 

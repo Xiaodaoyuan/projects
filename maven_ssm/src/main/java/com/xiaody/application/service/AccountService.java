@@ -3,7 +3,7 @@ package com.xiaody.application.service;
 import java.util.List;
 
 import com.xiaody.application.model.Account;
-import com.xiaody.application.model.option.AccountSearchOptions;
+import com.xiaody.application.model.options.AccountSearchOptions;
 
 public interface AccountService {
 	Account create(Account account);

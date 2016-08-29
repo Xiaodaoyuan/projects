@@ -5,7 +5,7 @@ import org.springframework.util.Assert;
 
 import com.xiaody.application.dao.AccountMapper;
 import com.xiaody.application.model.Account;
-import com.xiaody.application.model.option.AccountSearchOptions;
+import com.xiaody.application.model.options.AccountSearchOptions;
 import com.xiaody.application.service.AccountService;
 import com.xiaody.application.util.Utils;
 

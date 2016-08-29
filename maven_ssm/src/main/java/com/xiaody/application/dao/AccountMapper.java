@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.xiaody.application.model.Account;
-import com.xiaody.application.model.option.AccountSearchOptions;
+import com.xiaody.application.model.options.AccountSearchOptions;
 
 public interface AccountMapper {
 	void create(@Param("account") Account account);
