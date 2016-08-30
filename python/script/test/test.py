@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import json
+import sys
 
 
 HOST_ADDR = 'http://localhost:8080'
@@ -14,6 +15,9 @@ def main():
     print(cache.get('jobs'))
     print(type(cache))
 
+def main1():
+    print(sys.getdefaultencoding())
+
 
 if __name__ == '__main__':
-    main()
+    main1()
