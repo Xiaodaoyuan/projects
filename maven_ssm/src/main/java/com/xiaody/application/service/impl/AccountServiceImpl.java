@@ -1,6 +1,8 @@
 package com.xiaody.application.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.xiaody.application.dao.AccountMapper;
@@ -9,43 +11,14 @@ import com.xiaody.application.model.options.AccountSearchOptions;
 import com.xiaody.application.service.AccountService;
 import com.xiaody.application.util.Utils;
 
-import static com.xiaody.application.util.Utils.*;
-
-import java.util.List;
-
-public class AccountServiceImpl implements AccountService {
-
-	@Autowired
-	private AccountMapper accountMapper;
-
-	@Override
-	public Account create(Account account) {
-		accountMapper.create(account);
-		return account;
-	}
-
-	@Override
-	public Account update(Integer id, Account account) {
-		account.setUpdateTime(now());
-		accountMapper.update(id, account);
-		return account;
-	}
-
-	@Override
-	public void delete(Integer id) {
-		accountMapper.delete(id);
-	}
-
-	@Override
-	public Account get(Integer id) {
-		return accountMapper.get(id);
-	}
+@Service
+public class AccountServiceImpl extends BaseServiceImpl<Account, AccountMapper> implements AccountService {
 
 	@Override
 	public Account login(Account account) {
 		Assert.notNull(account.getUserName(), "username can not be null");
 		Assert.notNull(account.getPassword(), "password can not be null");
-		Account result = accountMapper.checkUsernameLogin(account.getUserName(), Utils.hash(account.getPassword()));
+		Account result = mapper.checkUsernameLogin(account.getUserName(), Utils.hash(account.getPassword()));
 		if (result != null) {
 			updateLastLoginTime(result.getId());
 		}
@@ -53,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	private Account updateLastLoginTime(Integer userId) {
-		Account account = accountMapper.get(userId);
+		Account account = mapper.get(userId);
 		if (account != null) {
 			account.setLastLoginTime(Utils.now());
 			update(userId, account);
@@ -63,7 +36,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public List<Account> searchByPage(AccountSearchOptions option) {
-		return accountMapper.searchByPage(option);
+		return mapper.searchByPage(option);
 	}
 
 }

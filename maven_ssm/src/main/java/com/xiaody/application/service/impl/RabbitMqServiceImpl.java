@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.xiaody.application.model.options.RMQDeclareBindingOptions;
@@ -18,6 +19,7 @@ import com.xiaody.application.model.options.RMQDeclareQueueOptions;
 import com.xiaody.application.model.options.RMQPublishOptions;
 import com.xiaody.application.service.RabbitMqService;
 
+@Service
 public class RabbitMqServiceImpl implements RabbitMqService {
 
 	@Value("${rabbitmq.enabled}")

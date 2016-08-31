@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 实体类,简称 -设置别名 -->
+	<typeAliases>
+		<typeAlias alias="Users" type="com.xiaody.spring_boot_demo.model.Users" />
+		<typeAlias alias="Blogs" type="com.xiaody.spring_boot_demo.model.Blogs" />
+		<typeAlias alias="Comments" type="com.xiaody.spring_boot_demo.model.Comments" />
+	</typeAliases>
+
+</configuration>

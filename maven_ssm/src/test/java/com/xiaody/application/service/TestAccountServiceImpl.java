@@ -28,19 +28,19 @@ public class TestAccountServiceImpl{
 		Account account =new Account();
 		account.setBirthDate(new Date());
 		account.setEmail("1307120838@qq.com");
-		account.setUserName("xiaody");
+		account.setUserName("xiaody5");
 		account.setNickName("xiaoxiao");
 		account.setMobile("13718363267");
-		account.setPassword("123456");
+		account.setPassword(Utils.hash("123456"));
 		account.setGender("ÄÐ");
-		account.setUserType(UserType.SYSTEM);
+		account.setUserType(UserType.DIAMOND_USER);
 		Account a= accountService.create(account);
 		System.out.println(a.getId());
 		System.out.println(a.getUserName());
 		System.out.println(a.getCreateTime());
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testGet(){
 		long start =System.currentTimeMillis();
@@ -52,12 +52,12 @@ public class TestAccountServiceImpl{
 	@Ignore
 	@Test
 	public void testUpdate(){
-		Account a =accountService.get(2);
+		Account a =accountService.get(1);
 		a.setUserName("xiaoxiao");
 		a.setMobile("15279227857");
 		a.setNickName("xiao");
 		a.setGender("Å®");
-		a.setPassword(Utils.hash(a.getPassword()));
+		a.setPassword(Utils.hash("111111"));
 		accountService.update(a.getId(), a);
 	}
 	@Ignore

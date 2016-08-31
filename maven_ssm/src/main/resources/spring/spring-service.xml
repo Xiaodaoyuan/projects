@@ -7,9 +7,10 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:annotation-config />
+	<context:component-scan base-package="com.xiaody.application.service.impl"></context:component-scan>
 
-	<bean id="accountService" class="com.xiaody.application.service.impl.AccountServiceImpl" />
+	<!--  <bean id="accountService" class="com.xiaody.application.service.impl.AccountServiceImpl" />
 	<bean id="cacheService" class="com.xiaody.application.service.impl.CacheServiceImpl" />
 	<bean id="rabbitMqService" class="com.xiaody.application.service.impl.RabbitMqServiceImpl" />
-
+ -->
 </beans>

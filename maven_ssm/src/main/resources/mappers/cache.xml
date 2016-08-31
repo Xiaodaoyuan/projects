@@ -1,18 +1,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xiaody.application.dao.CacheMapper">
-	<insert id="create" parameterType="cache">
+	<insert id="create" useGeneratedKeys="true"
+		keyProperty="entity.id" keyColumn="id">
 		insert into cache
 		(cacheKey,storedValue)
 		values
-		(#{cache.cacheKey},#{cache.storedValue})
+		(#{entity.cacheKey},#{entity.storedValue})
 	</insert>
 
 	<update id="update">
 		update cache
-		set cacheKey = #{cache.cacheKey},
-		storedValue=#{cache.storedValue},
-		updateTime=#{cache.updateTime}
+		set cacheKey = #{entity.cacheKey},
+		storedValue=#{entity.storedValue},
+		updateTime=#{entity.updateTime}
 		where id = #{id}
 	</update>
 

@@ -2,7 +2,7 @@ package com.xiaody.application.service.impl;
 
 import java.util.concurrent.Callable;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,23 +11,20 @@ import com.xiaody.application.cache.EhCacheFacade;
 import com.xiaody.application.dao.CacheMapper;
 import com.xiaody.application.model.cache.Cache;
 import com.xiaody.application.service.CacheService;
-import com.xiaody.application.util.Utils;
 
-public class CacheServiceImpl implements CacheService {
+@Service
+public class CacheServiceImpl extends BaseServiceImpl<Cache, CacheMapper> implements CacheService {
 	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
-	@Autowired
-	private CacheMapper cacheMapper;
 
 	@Override
 	public Cache create(Cache cache) {
 		try {
 			String storedValue = OBJECT_MAPPER.writeValueAsString(cache.getValue());
 
-			Cache existing = cacheMapper.getByKey(cache.getCacheKey());
+			Cache existing = mapper.getByKey(cache.getCacheKey());
 			if (existing == null) {
 				cache.setStoredValue(storedValue);
-				cacheMapper.create(cache);
+				mapper.create(cache);
 			} else {
 				cache.setStoredValue(storedValue);
 				update(existing.getId(), cache);
@@ -40,23 +37,6 @@ public class CacheServiceImpl implements CacheService {
 	}
 
 	@Override
-	public Cache update(Integer id, Cache cache) {
-		cache.setUpdateTime(Utils.now());
-		cacheMapper.update(id, cache);
-		return cache;
-	}
-
-	@Override
-	public void delete(Integer id) {
-		cacheMapper.delete(id);
-	}
-
-	@Override
-	public Cache get(Integer id) {
-		return cacheMapper.get(id);
-	}
-
-	@Override
 	public Cache getByKey(final String key) {
 		Cache cache = null;
 		try {
@@ -64,7 +44,7 @@ public class CacheServiceImpl implements CacheService {
 
 				@Override
 				public Cache call() throws Exception {
-					return cacheMapper.getByKey(key);
+					return mapper.getByKey(key);
 				}
 			});
 			cache.setValue(OBJECT_MAPPER.readValue(cache.getStoredValue(), JsonNode.class));

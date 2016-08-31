@@ -10,5 +10,6 @@
 	<import resource="classpath:spring/spring-cron.xml" />
 	<import resource="classpath:spring/spring-redis.xml" />
 	<import resource="classpath:spring/spring-rabbitmq.xml" />
+	<import resource="classpath:spring/spring-mongo.xml" />
 
 </beans>
