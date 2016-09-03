@@ -2,9 +2,16 @@ package com.xiaody.spring_boot_demo.model;
 
 import java.util.Date;
 
-public class Users {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table
+@Entity
+public class User {
 
 	private Integer id;
+	private String username;
+	private String mobile;
 	private String eamil;
 	private String password;
 	private boolean admin;
@@ -18,6 +25,22 @@ public class Users {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getEamil() {

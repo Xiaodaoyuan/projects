@@ -4,9 +4,11 @@ create database awesome;
 
 use awesome;
 
-create table users (
+create table user (
     id int not null auto_increment,
-    email varchar(50) not null,
+    username varchar(50) not null,
+    mobile varchar(11) not null,
+    email varchar(50),
     password varchar(50) not null,
     admin bool not null,
     name varchar(50) not null,
@@ -17,7 +19,7 @@ create table users (
     primary key (id)
 ) engine=innodb default charset=utf8;
 
-create table blogs (
+create table blog (
     id int not null auto_increment,
     user_id int not null,
     name varchar(50) not null,
@@ -28,7 +30,7 @@ create table blogs (
     primary key (id)
 ) engine=innodb default charset=utf8;
 
-create table comments (
+create table comment (
     id int not null auto_increment,
     blog_id int not null,
     user_id int not null,
@@ -41,4 +43,4 @@ create table comments (
 -- email / password:
 -- admin@example.com / password
 
-insert into users (email, password, admin, name) values ('admin@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'Administrator');
+insert into user (email, password, admin, name) values ('admin@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 'Administrator');

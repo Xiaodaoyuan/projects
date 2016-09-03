@@ -1,5 +1,5 @@
 package com.xiaody.spring_boot_demo.dao;
 
-public interface BlogsMapper {
+public interface UserDao {
 
 }

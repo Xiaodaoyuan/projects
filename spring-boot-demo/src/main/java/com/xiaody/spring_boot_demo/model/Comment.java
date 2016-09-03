@@ -2,11 +2,15 @@ package com.xiaody.spring_boot_demo.model;
 
 import java.util.Date;
 
-public class Blogs {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table
+@Entity
+public class Comment {
 	private Integer id;
+	private Integer blog_id;
 	private Integer user_id;
-	private String name;
-	private String summary;
 	private String content;
 	private Date created_at;
 
@@ -18,28 +22,20 @@ public class Blogs {
 		this.id = id;
 	}
 
+	public Integer getBlog_id() {
+		return blog_id;
+	}
+
+	public void setBlog_id(Integer blog_id) {
+		this.blog_id = blog_id;
+	}
+
 	public Integer getUser_id() {
 		return user_id;
 	}
 
 	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSummary() {
-		return summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
 	}
 
 	public String getContent() {
