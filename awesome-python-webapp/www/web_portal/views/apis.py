@@ -48,9 +48,8 @@ def authenticate():
         max_age = 604800 if remember == 'true' else None
         cookie = make_signed_cookie(user.id, user.password, max_age)
         response.set_cookie(_COOKIE_NAME, cookie, max_age=max_age)
-        user.password = '******'
-        return user
-    return return_data(result=result)
+        user['passowrd'] = '******'
+    return return_data(result=user)
 
 
 def make_signed_cookie(id, password, max_age):
