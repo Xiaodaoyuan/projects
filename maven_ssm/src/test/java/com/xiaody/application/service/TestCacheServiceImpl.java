@@ -31,7 +31,6 @@ public class TestCacheServiceImpl {
 		cacheService.create(cache);
 		System.out.println("----------------");
 	}
-
 	@Ignore
 	@Test
 	public void getByKey() {
