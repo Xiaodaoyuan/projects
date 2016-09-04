@@ -2,6 +2,7 @@ package com.xiaody.application.service;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class TestMongoServiceImpl {
 	@Autowired
 	private MongoTestService mongoTestService;
 
+	@Ignore
 	@Test
 	public void testSearch() {
 		List<Restaurants> list = mongoTestService.search();
