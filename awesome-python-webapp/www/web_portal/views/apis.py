@@ -26,10 +26,11 @@ def manage_interceptor(next):
 @apis.route("/", methods=['GET'])
 @apis.route("/index", methods=['GET'])
 def index():
-    resp = requests.post('http://localhost:8080/users/login')
-    if resp.status_code == 200:
-        print(resp.json())
-    return render_template('__base__.html', blog=json.dumps(resp.json()))
+    #resp = requests.post('http://localhost:8080/users/login')
+    #if resp.status_code == 200:
+     #   print(resp.json())
+    blog={}
+    return render_template('__base__.html', blog=json.dumps(blog))
 
 
 @apis.route("/signin", methods=['GET'])

@@ -1,5 +1,8 @@
 package com.xiaody.spring_boot_demo.dao;
 
-public interface UserDao {
+import com.xiaody.spring_boot_demo.model.User;
 
+public interface UserDao extends BaseDao<User> {
+	
+	User getByMobile(String mobile, String password);
 }

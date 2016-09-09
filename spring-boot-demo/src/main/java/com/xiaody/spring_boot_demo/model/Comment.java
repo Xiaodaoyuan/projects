@@ -3,17 +3,27 @@ package com.xiaody.spring_boot_demo.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Table
 @Entity
+@DynamicInsert
+@DynamicUpdate
 public class Comment {
 	private Integer id;
 	private Integer blog_id;
-	private Integer user_id;
 	private String content;
 	private Date created_at;
+	// private Blog blog;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
@@ -28,14 +38,6 @@ public class Comment {
 
 	public void setBlog_id(Integer blog_id) {
 		this.blog_id = blog_id;
-	}
-
-	public Integer getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
 	}
 
 	public String getContent() {
@@ -54,4 +56,13 @@ public class Comment {
 		this.created_at = created_at;
 	}
 
+	// @ManyToOne(cascade = CascadeType.ALL)
+	// @JoinColumn(name = "blog_id")
+	// public Blog getBlog() {
+	// return blog;
+	// }
+	//
+	// public void setBlog(Blog blog) {
+	// this.blog = blog;
+	// }
 }

@@ -4,4 +4,5 @@ import com.xiaody.spring_boot_demo.model.User;
 
 public interface UserService extends BaseService<User> {
 
+	User mobileLogin(User user);
 }

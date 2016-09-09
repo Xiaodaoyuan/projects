@@ -2,14 +2,14 @@ package com.xiaody.spring_boot_demo.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.xiaody.spring_boot_demo.dao.BaseDao;
 
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
+	@Autowired
 	protected HibernateTemplate hibernateTemplate;
 
 	protected Class<T> modelClass;
@@ -19,10 +19,6 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		modelClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 
-	@Resource
-	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
 
 	@Override
 	public T create(T entity) {

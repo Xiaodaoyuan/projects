@@ -3,22 +3,33 @@ package com.xiaody.spring_boot_demo.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Table
 @Entity
+@DynamicInsert
+@DynamicUpdate
 public class User {
 
 	private Integer id;
 	private String username;
 	private String mobile;
-	private String eamil;
+	private String email;
 	private String password;
 	private boolean admin;
 	private String name;
 	private String image;
 	private Date created_at;
+	//private Set<Blog> blogs;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
@@ -43,12 +54,12 @@ public class User {
 		this.mobile = mobile;
 	}
 
-	public String getEamil() {
-		return eamil;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -90,5 +101,15 @@ public class User {
 	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
 	}
+
+	// @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch =
+	// FetchType.LAZY)
+	// public Set<Blog> getBlogs() {
+	// return blogs;
+	// }
+	//
+	// public void setBlogs(Set<Blog> blogs) {
+	// this.blogs = blogs;
+	// }
 
 }
