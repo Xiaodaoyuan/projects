@@ -27,6 +27,7 @@ public class MyMapperProxy<T> implements InvocationHandler, Serializable {
 		this.methodCache = methodCache;
 	}
 
+	@SuppressWarnings("unused")
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		if (Object.class.equals(method.getDeclaringClass())) {
 			try {
