@@ -9,13 +9,24 @@
          http://www.springframework.org/schema/mvc 
          http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<context:annotation-config />
-	<context:component-scan base-package="com.xiaody.application.controller" />
+	<context:component-scan base-package="com.xiaody.application"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
 	<!-- 静态资源访问 -->
 	<mvc:annotation-driven />
 	<mvc:resources location="/images/" mapping="/images/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:default-servlet-handler />
+
+	<!--<mvc:interceptors>
+		<bean id="tokenInterceptor" class="com.xiaody.application.token.TokenInterceptor"/>-->
+		<!--<mvc:interceptor> <mvc:mapping path="" /> <bean></bean> </mvc:interceptor> -->
+	<!--</mvc:interceptors> -->
 
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />

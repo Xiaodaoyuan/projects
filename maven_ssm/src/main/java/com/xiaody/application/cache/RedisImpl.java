@@ -35,7 +35,7 @@ public class RedisImpl implements InitializingBean {
 
 	private int dataBase;
 
-	//private final String DB_PREFIX = "db";
+	// private final String DB_PREFIX = "db";
 
 	private JedisPool pool;
 
@@ -84,10 +84,10 @@ public class RedisImpl implements InitializingBean {
 		return jedis;
 	}
 
-	//private String getDbKey(String key) {
-	//	int no = dataBase;
-	//	return String.format("%s%d:%s", DB_PREFIX, no, key);
-	//}
+	// private String getDbKey(String key) {
+	// int no = dataBase;
+	// return String.format("%s%d:%s", DB_PREFIX, no, key);
+	// }
 
 	private void returnResource(Jedis client) {
 		if (null == client) {
@@ -144,6 +144,26 @@ public class RedisImpl implements InitializingBean {
 			returnResource(client);
 		}
 		return isExist;
+	}
+
+	/**
+	 * 
+	 * @param key
+	 * @param expire
+	 */
+	public void expire(String key, int expire) {
+		Jedis client = getRedisClient();
+		if (null == client) {
+			return;
+		}
+		try {
+			client.expire(key.getBytes(), expire);
+		} catch (Exception e) {
+			LOGGER.error("Error redis exist: " + e.getMessage());
+			returnBrokenResource(client);
+		} finally {
+			returnResource(client);
+		}
 	}
 
 	/**
@@ -369,6 +389,7 @@ public class RedisImpl implements InitializingBean {
 	 * @param key
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> Set<T> sGet(String key) {
 		Jedis client = getRedisClient();
 		if (null == client) {

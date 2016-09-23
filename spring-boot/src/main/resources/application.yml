@@ -1,0 +1,15 @@
+db:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost/shopping?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+  username: root
+  password: root
+  
+server:
+  port: 8866
+  
+cache:
+  redis:
+    enabled: true
+    host: 192.168.191.136
+    port: 6379
+    password: xiao

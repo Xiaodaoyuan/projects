@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.UUID;
 
 public class Utils {
 	/**
@@ -116,54 +117,56 @@ public class Utils {
 	public static Long nowTime() {
 		return now().getTime();
 	}
-	
+
 	public static List<String> getIpAddress() {
-        List<String> ips = new ArrayList<String>();
-        try {
-            Enumeration<?> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
-            InetAddress ip;
-            while (allNetInterfaces.hasMoreElements())
-            {
-                NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
-                Enumeration<?> addresses = netInterface.getInetAddresses();
-                while (addresses.hasMoreElements())
-                {
-                    ip = (InetAddress) addresses.nextElement();
-                    if (ip != null && ip instanceof Inet4Address)
-                    {
-                        ips.add(ip.getHostAddress());
-                    }
-                }
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+		List<String> ips = new ArrayList<String>();
+		try {
+			Enumeration<?> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
+			InetAddress ip;
+			while (allNetInterfaces.hasMoreElements()) {
+				NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
+				Enumeration<?> addresses = netInterface.getInetAddresses();
+				while (addresses.hasMoreElements()) {
+					ip = (InetAddress) addresses.nextElement();
+					if (ip != null && ip instanceof Inet4Address) {
+						ips.add(ip.getHostAddress());
+					}
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-        return ips;
-    }
-	
-	 public static String hash(String input) {
-	        if (input == null)
-	            return null;
+		return ips;
+	}
 
-	        try {
-	            MessageDigest m = MessageDigest.getInstance("MD5");
-	            m.reset();
-	            m.update(input.getBytes());
-	            byte[] digest = m.digest();
-	            BigInteger bigInt = new BigInteger(1, digest);
+	public static String hash(String input) {
+		if (input == null)
+			return null;
 
-	            String result = bigInt.toString(16);
-	            if (result.length() > 32)
-	                result = result.substring(0, 32);
+		try {
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.reset();
+			m.update(input.getBytes());
+			byte[] digest = m.digest();
+			BigInteger bigInt = new BigInteger(1, digest);
 
-	            // forget to padding left 0 to len-32, which does not meet MD5 standard
+			String result = bigInt.toString(16);
+			if (result.length() > 32)
+				result = result.substring(0, 32);
 
-	            return result;
-	        } catch (Exception e) {
-	            throw new RuntimeException(e);
-	        }
-	    }
+			// forget to padding left 0 to len-32, which does not meet MD5
+			// standard
+
+			return result;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static String createUUID() {
+		return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
+	}
 
 }
