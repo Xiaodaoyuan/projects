@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaody.blog.dao.CommentMapper">
+    <resultMap id="comment" type="com.xiaody.blog.model.Comment">
+        <result column="id" property="id"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="blog_id" property="blogId"></result>
+        <result column="comment_id" property="commentId"></result>
+        <result column="content" property="content"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="updated_time" property="updatedTime"></result>
+        <result column="deleted" property="deleted"></result>
+    </resultMap>
+
+    <insert id="create" useGeneratedKeys="true"
+            keyProperty="entity.id" keyColumn="id">
+        insert into comment (
+           user_id,blog_id,comment_id,content)
+        values (
+           #{entity.userId},#{entity.blogId},
+           #{entity.commentId},#{entity.content}
+        )
+    </insert>
+
+    <update id="update">
+        update
+            comment
+        set
+            content = #{entity.content},
+            updated_time = #{entity.updatedTime},
+            deleted = #{entity.deleted}
+        where
+            id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from comment where id = #{id}
+    </delete>
+
+    <select id="get" resultMap="comment">
+        select * from comment where id = #{id}
+    </select>
+
+</mapper>

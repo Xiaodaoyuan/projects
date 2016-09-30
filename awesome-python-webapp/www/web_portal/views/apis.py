@@ -48,7 +48,7 @@ def authenticate():
         user = resp.json()
         max_age = 604800 if remember == 'true' else None
         cookie = make_signed_cookie(user.id, user.password, max_age)
-        response.set_cookie(_COOKIE_NAME, cookie, max_age=max_age)
+        #response.set_cookie(_COOKIE_NAME, cookie, max_age=max_age)
         user['passowrd'] = '******'
     return return_data(result=user)
 

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    password: root
+    username: root
+
+  redis:
+    database: 0
+    host: 192.168.191.136
+    port: 6379
+    password: xiao
+
+  data:
+    mongodb:
+      host: 192.168.191.136
+      port: 27017
+
+  thymeleaf:
+    cache: false

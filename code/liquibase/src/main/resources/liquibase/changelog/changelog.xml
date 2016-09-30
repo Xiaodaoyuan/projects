@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+	<changeSet id="xiaody2016092901" author="xiaody">
+		<sql>
+            <![CDATA[
+                drop table if exists account;
+                create table account(
+                      id                   int not null auto_increment,
+                      user_name            varchar(20),
+                      password             varchar(32),
+                      nick_name            varchar(20),
+                      mobile               varchar(11),
+                      email                varchar(40),
+                      photo                varchar(100),
+                      last_login_time      datetime,
+                      created_time         datetime not null default current_timestamp,
+                      updated_time         datetime not null default current_timestamp,
+                      deleted              varchar(5) not null default 'false',
+                      primary key (id)
+                );
+            ]]>
+			<comment>create table account</comment>
+		</sql>
+	</changeSet>
+
+	<changeSet id="xiaody2016092902" author="xiaody">
+		<sql>
+			<![CDATA[
+                drop table if exists blog;
+                create table blog(
+                      id                   int not null auto_increment,
+                      user_id              int not null,
+                      title                varchar(100),
+                      summary              varchar(500),
+                      content              text,
+                      categoryCode         varchar(6),
+                      tags                 varchar(40),
+                      created_time         datetime not null default current_timestamp,
+                      updated_time         datetime not null default current_timestamp,
+                      deleted              varchar(5) not null default 'false',
+                      primary key (id)
+                );
+            ]]>
+			<comment>create table blog</comment>
+		</sql>
+	</changeSet>
+
+	<changeSet id="xiaody2016092903" author="xiaody">
+		<sql>
+			<![CDATA[
+                drop table if exists comment;
+                create table comment(
+                      id                   int not null auto_increment,
+                      user_id              int not null,
+                      blog_id              int,
+                      comment_id           int,
+                      content              varchar(500),
+                      created_time         datetime not null default current_timestamp,
+                      updated_time         datetime not null default current_timestamp,
+                      deleted              varchar(5) not null default 'false',
+                      primary key (id)
+                );
+            ]]>
+			<comment>create table comment</comment>
+		</sql>
+	</changeSet>
+	
+	<changeSet id="xiaody2016092904" author="xiaody">
+		<sql>
+            <![CDATA[
+                drop table if exists cache;
+                create table cache(
+                    id                   int not null auto_increment,
+                    cache_key            varchar(50),
+                    stored_value         varchar(1000),
+                    created_time         datetime not null default current_timestamp,
+                    updated_time         datetime not null default current_timestamp,
+                    deleted              varchar(5) not null default 'false',
+                    primary key (id)
+                );
+            ]]>
+			<comment>create table cache</comment>
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

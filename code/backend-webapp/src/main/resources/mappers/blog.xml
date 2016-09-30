@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaody.blog.dao.BlogMapper">
+    <resultMap id="blog" type="com.xiaody.blog.model.Blog">
+        <result column="id" property="id"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="title" property="title"></result>
+        <result column="summary" property="summary"></result>
+        <result column="content" property="content"></result>
+        <result column="categoryCode" property="categoryCode"></result>
+        <result column="tags" property="tags"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="updated_time" property="updatedTime"></result>
+        <result column="deleted" property="deleted"></result>
+    </resultMap>
+
+    <insert id="create" useGeneratedKeys="true"
+            keyProperty="entity.id" keyColumn="id">
+        insert into blog (
+            user_id,title,summary,content,categoryCode,tags)
+        values (
+            #{entity.userId},#{entity.title},
+            #{entity.summary},#{entity.content},
+            #{entity.categoryCode},#{entity.tags}
+        )
+    </insert>
+
+    <update id="update">
+        update
+            blog
+        set
+            title = #{entity.title},
+            summary = #{entity.summary},
+            content = #{entity.content},
+            categoryCode = #{entity.categoryCode},
+            tags = #{entity.tags},
+            updated_time = #{entity.updatedTime},
+            deleted = #{entity.deleted}
+        where
+            id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from blog where id = #{id}
+    </delete>
+
+    <select id="get" resultMap="blog">
+        select * from blog where id = #{id}
+    </select>
+
+</mapper>
