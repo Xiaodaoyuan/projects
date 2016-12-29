@@ -12,5 +12,6 @@
 	<import resource="classpath:spring/spring-rabbitmq.xml" />
 	<import resource="classpath:spring/spring-mongo.xml" />
 	<import resource="classpath:spring/spring-security.xml" />
+	<import resource="classpath:spring/spring-cache.xml" />
 
 </beans>
