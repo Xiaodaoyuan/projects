@@ -15,17 +15,20 @@ public class TestSpringRedis {
     @Autowired
     private SpringRedis springRedis;
 
+    @Ignore
     @Test
     public void testPut() {
         springRedis.put("name", "xiaodyxiao");
     }
 
+    @Ignore
     @Test
     public void testGet() {
         String value = springRedis.get("name");
         System.out.println(value);
     }
 
+    @Ignore
     @Test
     public void testLPush() {
         springRedis.lPush("list", 1);

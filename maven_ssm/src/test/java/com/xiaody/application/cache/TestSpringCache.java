@@ -1,6 +1,7 @@
 package com.xiaody.application.cache;
 
 import com.xiaody.application.model.Account;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class TestSpringCache {
     @Autowired
     private SpringCacheDemo springCacheDemo;
 
+    @Ignore
     @Test
     public void testSpringCache() {
         System.out.println("first query...");
@@ -29,6 +31,7 @@ public class TestSpringCache {
 
     }
 
+    @Ignore
     @Test
     public void testUpdateSpringCache() {
         System.out.println("first query....");
@@ -48,6 +51,7 @@ public class TestSpringCache {
     }
 
 
+    @Ignore
     @Test
     public void testReload() throws Exception {
         springCacheDemo.reload();
@@ -60,6 +64,7 @@ public class TestSpringCache {
     }
 
 
+    @Ignore
     @Test
     public void testSpringCacheByKey() {
         System.out.println("first query...");
