@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Xiaody on 2016/12/30.
@@ -63,5 +64,13 @@ public class SpringRedis {
                 return null;
             }
         });
+    }
+
+    public void sadd(String key, String value) {
+        redisTemplate.opsForSet().add(key, value);
+    }
+
+    public Set smembers(String key) {
+        return redisTemplate.opsForSet().members(key);
     }
 }

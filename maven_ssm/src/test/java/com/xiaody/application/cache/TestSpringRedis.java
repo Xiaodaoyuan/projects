@@ -35,4 +35,11 @@ public class TestSpringRedis {
         springRedis.lPush("list", "qwerty");
     }
 
+    @Ignore
+    @Test
+    public void testSadd() {
+        springRedis.sadd("set","xiao");
+        springRedis.sadd("set", "xiaoxiao");
+    }
+
 }
