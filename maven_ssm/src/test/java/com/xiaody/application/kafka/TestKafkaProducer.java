@@ -13,12 +13,12 @@ import com.xiaody.application.model.Account;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TestKafkaProducer {
 
-	private String topic = "account";
+	private String topic = "test";
 
 	@Autowired
 	private KafkaMessageProducer producer;
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testSend() {
 		for (int i = 0; i < 20; i++) {

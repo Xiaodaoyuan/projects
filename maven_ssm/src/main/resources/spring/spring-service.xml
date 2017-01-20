@@ -9,6 +9,7 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.xiaody.application.service.impl"></context:component-scan>
 	<context:component-scan base-package="com.xiaody.application.cache"></context:component-scan>
+	<context:component-scan base-package="com.xiaody.application.kafka"></context:component-scan>
 
 	<!--  <bean id="accountService" class="com.xiaody.application.service.impl.AccountServiceImpl" />
 	<bean id="cacheService" class="com.xiaody.application.service.impl.CacheServiceImpl" />

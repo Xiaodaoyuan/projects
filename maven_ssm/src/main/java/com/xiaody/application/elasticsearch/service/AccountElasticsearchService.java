@@ -12,4 +12,6 @@ public interface AccountElasticsearchService {
     long count();
 
     Account getByName(String name);
+
+    List<Account> search();
 }

@@ -73,4 +73,8 @@ public class SpringRedis {
     public Set smembers(String key) {
         return redisTemplate.opsForSet().members(key);
     }
+
+    public void hmSet(String key,String hashKey,String value){
+        redisTemplate.opsForHash().put(key,hashKey,value);
+    }
 }

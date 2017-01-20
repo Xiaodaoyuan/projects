@@ -40,11 +40,11 @@ public class KafkaMessageProducer {
 		}
 	}
 
-	public void send(String topic, Object object) {
-		if (null == producer)
-			return;
-		String value = JSON.toJSONString(object);
-		ProducerRecord<String, String> record = new ProducerRecord<>(topic, value);
-		producer.send(record);
-	}
+    public void send(String topic, Object object) {
+        if (null == producer)
+            return;
+        String value = JSON.toJSONString(object);
+        ProducerRecord<String, String> record = new ProducerRecord<>(topic,  value);
+        producer.send(record);
+    }
 }
