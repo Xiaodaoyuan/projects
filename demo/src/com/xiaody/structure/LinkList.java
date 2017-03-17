@@ -1,7 +1,5 @@
 package com.xiaody.structure;
 
-import java.util.Iterator;
-
 /**
  * Created by Xiaody on 2017/2/27.
  */
