@@ -35,19 +35,21 @@ public class TestThreadLocal {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 25; i++) {
-            service.execute(() -> {
-                try {
-                    System.out.println(Thread.currentThread().getName());
-                    System.out.println(TestThreadLocal.get("yyyy-MM-dd HH:mm:ss").parse("2017-03-15 15:33:22"));
-                    Thread.sleep(1000);
+        while (true) {
+            for (int i = 0; i < 25; i++) {
+                service.execute(() -> {
+                    try {
+                        System.out.println(Thread.currentThread().getName());
+                        System.out.println(TestThreadLocal.get("yyyy-MM-dd HH:mm:ss").parse("2017-03-15 15:33:22"));
+                        Thread.sleep(1000);
 //                    System.out.println(sdf.parse("2017-03-15 15:33:22"));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
         }
     }
 }
