@@ -1,0 +1,37 @@
+
+
+primary:
+  datasource:
+    url: jdbc:mysql://localhost/shopping?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    password:
+
+
+shiro:
+  datasource:
+    url: jdbc:mysql://localhost/shiro?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 1307120838@qq.com
+    password: anzosxnqydxgiibb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  redis:
+    host: localhost
+    port: 6379
