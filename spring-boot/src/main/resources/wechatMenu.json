@@ -49,14 +49,14 @@
           "key": "rselfmenu_2_0"
         },
         {
-          "type": "click",
-          "name": "图片",
-          "key": "123"
+          "type": "view",
+          "name": "链接一",
+          "url": "http://56a8db46.ngrok.io/wechat/entrance?type=first"
         },
         {
           "type": "view",
-          "name": "图文消息",
-          "url": "http://www.baidu.com"
+          "name": "链接二",
+          "url": "http://56a8db46.ngrok.io/wechat/entrance?type=second"
         }
       ]
     }
